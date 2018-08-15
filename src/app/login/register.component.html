@@ -1,0 +1,47 @@
+
+<div class="container">
+
+  <div class="row d-flex flex-row-reverse">
+    <div class="col-6">
+      <div class="m-4">
+        <h4>Registrate ahora</h4>
+        <p>Crea tu evento y deja que todo Mexico lo encuentre.</p>
+      </div>
+      <form>
+      <div class="form-group">
+        <label for="nombre"></label>
+        <input class="form-control" type="text" name="nombre" placeholder="Nombre" [(ngModel)]="newUser.nombre">
+      </div>
+      <div class="form-group">
+        <label for="email"></label>
+        <input class="form-control" type="email" name="email" placeholder="Correo" [(ngModel)]="newUser.email">
+      </div>
+      <div class="form-group">
+        <label for=""></label>
+        <input type="password" class="form-control" placeholder="Contraseña" name="password" [(ngModel)]="newUser.password">
+      </div>
+      <div class="form-group">
+        <label for=""></label>
+        <input type="password" class="form-control" placeholder="Confirmar Contraseña" name="passwordCnfirm" [(ngModel)]="newUser.passwordConfirm">
+      </div>
+      <div class="form-group">
+        <button type="button" name="button" class="btn btn-outline-info btn-block" (click)="register()">Registrar</button>
+      </div>
+      <div class="">
+
+      </div>
+      <div class="form-group">
+        <div class="col-5">
+          <h5>Registrate Con</h5>
+        </div>
+        <div class="d-flex justify-content-between">
+          <button type="button" name="button" class="btn btn-outline-danger">Google</button>
+          <button type="button" name="button" class="btn btn-outline-primary">Facebook</button>
+          <button type="button" name="button" class="btn btn-outline-info">Twiter</button>
+        </div>
+      </div>
+    </form>
+    </div>
+  </div>
+
+</div>
