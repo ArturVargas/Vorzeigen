@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewEventComponent implements OnInit {
 
+  newEvent: any = { };
+
+  lat = 51.678418;
+  lng = 7.809007;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  createEvnt() {
+    console.log( this.newEvent );
   }
 
 }

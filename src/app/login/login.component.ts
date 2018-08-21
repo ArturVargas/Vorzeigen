@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
   login() {
     console.log(this.loginData);
     if (this.loginData.length !== 0) {
-      this.router.navigate(['/profile']);
+      this.router.navigate(['/profile', 'perfil']);
     } else {
       console.log('Contraseñe o Usuario Incorrecto');
     }

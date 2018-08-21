@@ -5,6 +5,7 @@ import { PagesComponent } from './pages/pages.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { RegisterComponent } from './login/register.component';
 import { NewEventComponent } from './pages/profile/new-event/new-event.component';
+import { PerfilComponent } from './pages/profile/perfil/perfil.component';
 
 
 const appRoutes: Routes = [
@@ -18,7 +19,9 @@ const appRoutes: Routes = [
      },
     { path: 'profile', component: ProfileComponent,
       children: [
-          { path: 'evento-nuevo', component: NewEventComponent }
+        { path: 'perfil', component: PerfilComponent },
+        { path: 'eventonuevo', component: NewEventComponent },
+        { path: '', redirectTo: '/perfil', pathMatch: 'full' }
       ]
     },
     { path: 'login', component: LoginComponent },

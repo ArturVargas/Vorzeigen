@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { AgmCoreModule } from '@agm/core';
 
 // Rutas
 import { APP_ROUTES } from './app.routes';
@@ -14,6 +15,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { PagesComponent } from './pages/pages.component';
 import { RegisterComponent } from './login/register.component';
 import { NewEventComponent } from './pages/profile/new-event/new-event.component';
+import { PerfilComponent } from './pages/profile/perfil/perfil.component';
 
 @NgModule({
   declarations: [
@@ -25,12 +27,16 @@ import { NewEventComponent } from './pages/profile/new-event/new-event.component
     ProfileComponent,
     PagesComponent,
     RegisterComponent,
-    NewEventComponent
+    NewEventComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    APP_ROUTES
+    APP_ROUTES,
+    AgmCoreModule.forRoot({
+      apiKey: ''
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

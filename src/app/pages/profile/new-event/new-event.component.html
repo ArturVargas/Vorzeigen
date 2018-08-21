@@ -5,7 +5,71 @@
         <hr>
         <p class="lead">Crea un evento para que todos lo vean</p>
         <hr class="my-4">
-        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+        <div>
+            <form action="">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Nombre del Evento" name="nameEvnt" [(ngModel)]="newEvent.name">
+                </div>
+
+                <div class="form-group">
+                    <label for="typeEvnt" class="label-control">Tipo de Evento: </label>
+                    <select name="typeEvnt" class="form-control" [(ngModel)]="newEvent.type">
+                        <option value="C">Classic</option>
+                        <option value="E">EURO</option>
+                        <option value="M">Muscle</option>
+                        <option value="J">JDM</option>
+                        <option value="S">Stance</option>
+                        <option value="R">Racing</option>
+                        <option value="D">Drift</option>
+                        <option value="MM">Multimarca</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="dates" class="label-control">Fecha del evento</label>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label for="del" class="label-control">Del: </label>
+                            <input type="date" class="form-control" name="fechaIni" [(ngModel)]="newEvent.fechaInit">
+                        </div>
+                        <div class="col-sm-6">
+                                <label for="Al" class="label-control">Al: </label>
+                            <input type="date" class="form-control" name="fechaEnd" [(ngModel)]="newEvent.fechaEnd">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for=""></label>
+                    <input type="text" class="form-control" placeholder="Costo del Evento" name="cost" [(ngModel)]="newEvent.cost">
+                </div>
+
+                <div class="form-group">
+                    <label for=""></label>
+                    <input type="text" class="form-control" placeholder="Número de Participantes" name="size" [(ngModel)]="newEvent.size">
+                </div>
+
+                <div class="form-group">
+                    <label for="description" class="label-control">Descripción del evento</label>
+                    <textarea name="description" class="form-control" cols="80" rows="4" [(ngModel)]="newEvent.description"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="location" class="label-control">Ubicación del Evento</label>
+                    <input type="text" class="form-control" name="location" placeholder="Buscar en el mapa" [(ngModel)]="newEvent.location">
+                    <div>
+                        <!--Mapa de Angular Google Maps -->
+                        <!--<agm-map [latitude]="lat" [longitude]="lng">
+                            <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+                        </agm-map>-->
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-outline-info" (click)="createEvnt()">Crear Evento</button>
+                    <button class="btn btn-outline-danger">Cancelar</button>
+                </div>
+            </form>
+        </div>
       </div>
 </div>
