@@ -2,7 +2,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
+import { environment } from '../environments/environment';
 
+// FIREBASE docs: https://github.com/angular/angularfire2 //
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+
+// Services
+import { ServicesService } from './providers/services.service';
 // Rutas
 import { APP_ROUTES } from './app.routes';
 
@@ -34,11 +42,17 @@ import { PerfilComponent } from './pages/profile/perfil/perfil.component';
     BrowserModule,
     FormsModule,
     APP_ROUTES,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    AngularFireAuthModule,
+    // Mapas de Google //
     AgmCoreModule.forRoot({
       apiKey: ''
     })
   ],
-  providers: [],
+  providers: [
+    ServicesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

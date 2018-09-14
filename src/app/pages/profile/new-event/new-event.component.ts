@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ServicesService } from '../../../providers/services.service';
 
 @Component({
   selector: 'app-new-event',
@@ -12,13 +13,13 @@ export class NewEventComponent implements OnInit {
   lat = 51.678418;
   lng = 7.809007;
 
-  constructor() { }
+  constructor(private ss: ServicesService) { }
 
   ngOnInit() {
   }
 
-  createEvnt() {
-    console.log( this.newEvent );
+  createEvnt(data) {
+    this.ss.createEvent(data);
   }
 
 }

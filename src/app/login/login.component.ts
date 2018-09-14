@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ServicesService } from '../providers/services.service';
 
 @Component({
   selector: 'app-login',
@@ -10,17 +11,31 @@ export class LoginComponent implements OnInit {
 
   loginData: any = {};
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private serviceLog: ServicesService) { }
 
   ngOnInit() {
   }
 
-  login() {
-    console.log(this.loginData);
-    if (this.loginData.length !== 0) {
-      this.router.navigate(['/profile', 'perfil']);
+  login(data) {
+    console.log(data);
+    if ( data === 'google') {
+      this.serviceLog.fastLogin(data)
+       .then( res => {
+        console.log(res);
+        this.router.navigate(['/profile', 'perfil']);
+       }).catch( (err) => {
+        console.log('Contraseña o Usuario Incorrecto');
+        console.log(err);
+      });
     } else {
-      console.log('Contraseñe o Usuario Incorrecto');
+      this.serviceLog.emailLogin(data)
+      .then( res => {
+        console.log(res);
+        this.router.navigate(['/profile', 'perfil']);
+      }).catch( (err) => {
+        console.log('Contraseña o Usuario Incorrecto');
+       console.log(err);
+      });
     }
   }
 

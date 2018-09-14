@@ -18,7 +18,7 @@
           <input type="password" class="form-control" id="password" placeholder="Contraseña" name="password" [(ngModel)]="loginData.password">
         </div>
         <div class="form-group d-flex justify-content-center">
-        <button type="button" name="button" class="btn btn-outline-info btn-block" (click)="login()">Login</button>
+        <button type="button" name="button" class="btn btn-outline-info btn-block" (click)="login(loginData)">Login</button>
         </div>
         <div class="form-group d-flex justify-content-end">
           <span><a data-toggle="modal" data-target="#exampleModal">Olvide mi contraseña</a></span>
@@ -26,7 +26,7 @@
         <div class="form-group">
           <h5>Iniciar Sesión con Google</h5>
           <div class=" d-flex justify-content-center">
-            <button type="button" name="button" class="btn btn-danger btn-lg" (click)="login()">Google</button>
+            <button type="button" name="button" class="btn btn-danger btn-lg" (click)="login('google')">Google</button>
           </div>
         </div>
         <div class="form-group d-flex justify-content-center">

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ServicesService } from '../../providers/services.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,7 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor( public ss: ServicesService) { 
+    this.ss.getEvents()
+      .subscribe( (res: any []) => {
+        console.log(res);
+      });
+  }
 
   ngOnInit() {
   }
