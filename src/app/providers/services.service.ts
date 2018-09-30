@@ -11,6 +11,7 @@ export class ServicesService {
   private itemsCollection: AngularFirestoreCollection<any>;
   public events: any[] = [];
   id: any;
+  userName = '';
 
   constructor( public router: Router,
                private afs: AngularFirestore,
@@ -20,8 +21,8 @@ export class ServicesService {
                    if (!user) {
                      return;
                    }
-                   console.log( user.uid );
                    this.id = user.uid;
+                   this.userName = user.displayName;
                  });
                 }
 
@@ -59,7 +60,7 @@ export class ServicesService {
 
 // Trae todos los eventos existentes en la BD.
   getEvents() {
-    this.itemsCollection = this.afs.collection<any>('Users');
+    this.itemsCollection = this.afs.collection<any>('eventos');
     return this.itemsCollection.valueChanges();
   }
 
