@@ -19,7 +19,12 @@ export class NewEventComponent implements OnInit {
   }
 
   createEvnt(data) {
-    this.ss.createEvent(data);
+    this.ss.createEvent(data).then( res => {
+      console.log(res);
+    }).catch(err => {
+      console.log(err);
+    });
+
   }
 
 }
